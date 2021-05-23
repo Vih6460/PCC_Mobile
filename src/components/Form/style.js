@@ -23,8 +23,8 @@ const styles = StyleSheet.create({
         textAlign: "center",
         color: "#ffe600",
         textShadowColor: 'rgba(0, 0, 0, 1)',
-        textShadowOffset: {width: 1, height: 1},
-        textShadowRadius: 10,
+        textShadowOffset: {width: -1, height: 1},
+        textShadowRadius: 5,
         fontSize: 50,
         fontWeight: "bold",
     },
@@ -63,7 +63,7 @@ const styles = StyleSheet.create({
         color: "#ffffff",
         textShadowColor: 'rgba(0, 0, 0, 1)',
         textShadowOffset: {width: 0, height: 1},
-        textShadowRadius: 5,
+        textShadowRadius: 3,
     }
 });
 

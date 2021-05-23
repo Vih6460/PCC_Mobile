@@ -1,25 +1,19 @@
 import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
-    resultImc: {
+    resultLogin: {
         flex:1,
-        marginTop: 15,
-        paddingTop: 60,
+        marginTop: 10,
+        paddingTop: 0,
         borderRadius: 50,
         alignItems: "center",
         width: "100%",
     },
 
-    numberImc: {
-        fontSize: 48,
-        fontWeight: "bold",
-        color: "#ff0043",
-    },
-
     information: {
         fontSize: 18,
         fontWeight: "bold",
-        color: "#ff0043",
+        color: "#000",
     }
 });
 

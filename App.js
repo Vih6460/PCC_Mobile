@@ -1,16 +1,18 @@
 import React from 'react';
-import { StyleSheet, View, TouchableWithoutFeedback, Keyboard, StatusBar } from 'react-native';
+import { StyleSheet, TouchableWithoutFeedback, Keyboard, StatusBar, KeyboardAvoidingView, Platform, ScrollView } from 'react-native';
 import Title from './src/components/Title/'
-import Main from './src/components/Main/'
+import Form from './src/components/Form/'
 
 export default function App() {
   return (
     <DismissKeyboard>
-      <View style={styles.container}>
-        <StatusBar barStyle="light-content" />
-        <Title />
-        <Main />
-      </View>
+      <KeyboardAvoidingView behavior={Platform.OS == "ios" ? "padding" : "height"} style={styles.container}>
+        <ScrollView>
+          <StatusBar barStyle="light-content" />
+          <Title />
+          <Form />
+        </ScrollView>
+      </KeyboardAvoidingView>
     </DismissKeyboard>
   );
 }
@@ -18,7 +20,7 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#000',
+    backgroundColor: '#171717',
     paddingTop: 80
   },
 });

@@ -1,32 +1,40 @@
 import React, { useState } from "react"
 import {View, Text, TextInput, TouchableOpacity, Keyboard} from "react-native"
 import styles from "./style"
-import ResultIMC from "./ResultIMC/"
+import ResultLogin from "./ResultLogin"
 
 export default function Form(){
-    const [height, setHeight] = useState(null)
-    const [weight, setWeight] = useState(null)
-    const [messageImc, setMessageImc] = useState("Preencha o PESO e ALTURA.")
-    const [imc, setImc] = useState(null)
-    const [textButton, setTextButton] = useState("Entrar")
+    const [user, setUser] = useState(null)
+    const [password, setPassword] = useState(null)
+    const [messageLogin, setMessageLogin] = useState(null)
 
-    function imcCalculator(){
-        return setImc((weight/(height*height)).toFixed(2))
+    function loginValidation(){
+        if(user == "viniciuz6460@gmail.com" && password == "teste"){
+            return true 
+        }else{
+            return false
+        }
     }
 
-    function validationIMC(){
-        if(weight != null && height != null){
-            imcCalculator()
-            setWeight(null)
-            setHeight(null)
-            setMessageImc("Seu IMC é igual: ")
-            setTextButton("Calcular Novamente")
-            Keyboard.dismiss()
-            return
+    function login(){
+        if(user != null && password != null){
+            loginValidation()
+            if(loginValidation() == true){
+                setUser(null)
+                setPassword(null)
+                setMessageLogin("Sucesso ao efetuar login.")
+                Keyboard.dismiss()
+                return
+            }else{
+                setUser(null)
+                setPassword(null)
+                setMessageLogin("Falha ao efetuar login.")
+                Keyboard.dismiss()
+                return
+            }
+        }else{
+            setMessageLogin("Preencha o usuário e senha.")
         }
-        setImc(null)
-        setTextButton("Calcular")
-        setMessageImc("Preencha o PESO e ALTURA.")
     }
 
     return(        
@@ -36,16 +44,16 @@ export default function Form(){
                     <Text style={styles.textTitle}>Login</Text>
 
                     <Text style={styles.formLabel}>Usuário</Text>
-                    <TextInput style={styles.formInput} onChangeText={setHeight} value={height} placeholder="nome@exemplo.com" keyboardType="numeric" />
+                    <TextInput style={styles.formInput} onChangeText={setUser} value={user} placeholder="nome@gmail.com" keyboardType="email-address" autoCorrect={false}/>
 
                     <Text style={styles.formLabel}>Senha</Text>
-                    <TextInput style={styles.formInput} onChangeText={setWeight} value={weight} placeholder="******" keyboardType="numeric" />
+                    <TextInput style={styles.formInput} onChangeText={setPassword} value={password} placeholder="********" keyboardType="default" secureTextEntry={true} autoCorrect={false}/>
 
-                    <TouchableOpacity style={styles.buttonCalculator} onPress={() => validationIMC()}>
-                        <Text style={styles.textButtonCalculator}>{textButton}</Text>
+                    <TouchableOpacity style={styles.buttonCalculator} onPress={() => login()}>
+                        <Text style={styles.textButtonCalculator}>Entar</Text>
                     </TouchableOpacity>
 
-                    <ResultIMC messageResultImc={messageImc} resultImc={imc}/>
+                    <ResultLogin messageResultLogin={messageLogin}/>
                 </View>
 
             </View>

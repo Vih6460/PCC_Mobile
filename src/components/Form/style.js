@@ -45,7 +45,7 @@ const styles = StyleSheet.create({
         paddingLeft: 20
     },
 
-    buttonCalculator: {
+    buttonLogin: {
         borderRadius: 50,
         alignItems: "center",
         justifyContent: "center",
@@ -58,7 +58,7 @@ const styles = StyleSheet.create({
 
     },
 
-    textButtonCalculator: {
+    textButtonLogin: {
         fontSize: 25,
         color: "#ffffff",
         textShadowColor: 'rgba(0, 0, 0, 1)',

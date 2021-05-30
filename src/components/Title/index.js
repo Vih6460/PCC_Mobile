@@ -1,7 +1,6 @@
 import React from "react"
-import {View, Text, Image} from "react-native"
+import {View, Image} from "react-native"
 import styles from "./style";
-import style from "./style/"
 
 export default function Title(){
     return(

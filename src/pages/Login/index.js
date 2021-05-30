@@ -10,10 +10,7 @@ export default function Login({navigation}) {
         <ScrollView>
           <StatusBar barStyle="light-content" />
           <Title />
-          {/* <Text 
-          onPress={()=> navigation.navigate('PainelDiario', {typeUser: 'motorista'})}
-          >Entar no Painel Diário...</Text> */}
-          <Form navigation= {navigation}/>
+          <Form navigation={navigation}/>
         </ScrollView>
       </KeyboardAvoidingView>
     </DismissKeyboard>
